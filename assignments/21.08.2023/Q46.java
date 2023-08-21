@@ -21,5 +21,5 @@ public class Q46 {
                 temp.remove(temp.size()-1);       //removes the current permutation
             }
         }
-    }
+    } 
 }
