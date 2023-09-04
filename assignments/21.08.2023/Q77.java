@@ -2,24 +2,22 @@ public class Q77
 {
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new ArrayList<>();
-        combine_use(result, new ArrayList<>(),1,n,k);  //n range of numbers  k-->number of elements in each combination
+        help_combine(1,n,k,new ArrayList(),result);
         return result;
     }
 
-    public void combine_use(List<List<Integer>> result, List<Integer> current , int index , int n , int k)
+    void help_combine(int start , int n ,int k , List<Integer> curr , List<List<Integer>> result)
     {
-        if(k==0)
+        if(curr.size() == k)  //check only array with k elements are added in the list
         {
-            result.add(new ArrayList<>(current));
+            result.add(new ArrayList(curr));
             return;
         }
-        if(index>n)
+        for(int i = start;i<=n;i++)
         {
-            return;
+            curr.add(i);
+            help_combine(i+1,n,k,curr,result);
+            curr.remove(curr.size()-1);
         }
-        current.add(index);
-        combine_use(result , current , index+1,n,k-1);
-        current.remove(current.size()-1);   //backtrack
-        combine_use(result , current , index+1,n,k);
     }
 }

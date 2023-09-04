@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class P1539 {
     public int findKthPositive(int[] arr, int k) {
         int index = 0;
@@ -12,6 +14,7 @@ public class P1539 {
                 if(counter==k) return i;
             }
         }
+        Arrays.to
         return arr[arr.length-1]+k-counter;
     }
 }
